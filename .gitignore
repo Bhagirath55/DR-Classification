@@ -183,3 +183,4 @@ cython_debug/
 # Dataset folder
 preprocessed/
 dataset/
+/notebooks/Extracted_features

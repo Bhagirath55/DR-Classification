@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetic Retinopathy Detection</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Diabetic Retinopathy Detection</h1>
+        <p class="subtitle">Upload a retina image to detect the stage of Diabetic Retinopathy.</p>
+
+        <!-- File Upload Section (Always Visible) -->
+        <div class="upload-section">
+            <input type="file" id="imageInput" accept="image/*">
+            <label for="imageInput" class="custom-file-upload">Choose Image</label>
+        </div>
+
+        <!-- Image Display Section -->
+        <div class="image-container">
+            <div class="image-box">
+                <h3>Original Image</h3>
+                <img id="uploadedImage" alt="Uploaded Image">
+            </div>
+            <div class="image-box">
+                <h3>Preprocessed Image</h3>
+                <img id="preprocessedImage" alt="Preprocessed Image">
+            </div>
+        </div>
+
+        <!-- Predict Button -->
+        <button id="predictButton" style="display: none;" onclick="predictImage()">Predict DR Stage</button>
+
+        <!-- Result Section -->
+        <div id="result-section" style="display: none;">
+            <h3>Prediction Results</h3>
+            <p id="prediction-output"></p>
+        </div>
+
+        <!-- Grad-CAM Button -->
+        <button id="gradCamButton" style="display: none;" onclick="generateGradCAM()">Show Grad-CAM</button>
+
+        <!-- Grad-CAM Visualization Section -->
+        <div id="grad-cam-section" style="display: none;">
+            <h3>Grad-CAM Visualizations</h3>
+            <div class="image-container">
+                <div class="image-box">
+                    <h3>Grad-CAM (Custom CNN)</h3>
+                    <p id="grad-cam-cnn-message" style="color: red;"></p>
+                    <img id="grad-cam-cnn" alt="CNN Grad-CAM">
+                </div>
+                <div class="image-box">
+                    <h3>Grad-CAM (GoogleNet-SVM)</h3>
+                    <img id="grad-cam-googlenet" alt="GoogleNet Grad-CAM">
+                </div>
+                <div class="image-box">
+                    <h3>Grad-CAM (ResNet-SVM)</h3>
+                    <img id="grad-cam-resnet" alt="ResNet Grad-CAM">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
